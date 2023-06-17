@@ -81,9 +81,7 @@ object market_analysis extends Serializable {  //conversion of the state of an o
       else
         "Old"
     })
-    val newage = df1.withColumn("age", agedf(df1("age")))
-    newage.createTempView("newbank")
-
+    
    
     
 
