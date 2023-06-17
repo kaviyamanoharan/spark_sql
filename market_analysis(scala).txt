@@ -84,13 +84,8 @@ object market_analysis extends Serializable {  //conversion of the state of an o
     val newage = df1.withColumn("age", agedf(df1("age")))
     newage.createTempView("newbank")
 
-    val age_target_yes = spark.sql("select age, count(*) as number from newbank where y='\"yes\"' group by age order by number desc ").show()
-    val age_target_no = spark.sql("select age, count(*) as number from newbank where y='\"no\"' group by age order by number desc ").show()
-
-    val dataFrame = newage.withColumn("incremental_id", monotonically_increasing_id())
-    val visual = dataFrame.select(col("incremental_id"), col("age"), col("y"))
-    visual.show()
-
+   
+    
 
 
 
